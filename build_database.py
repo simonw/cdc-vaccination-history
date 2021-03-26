@@ -23,6 +23,6 @@ if __name__ == "__main__":
             continue
         for state in states:
             id = state["Location"] + "-" + state["Date"]
-            db["daily_states"].insert(
+            db["daily_reports"].insert(
                 dict(state, id=id), pk="id", alter=True, replace=True
             )
