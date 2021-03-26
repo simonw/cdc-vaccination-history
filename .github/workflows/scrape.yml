@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Check out this repo
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Fetch latest data
       run: |-
         curl https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data | jq . > incidents.json
