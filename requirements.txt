@@ -1,0 +1,4 @@
+GitPython
+sqlite-utils
+datasette
+datasette-publish-vercel
