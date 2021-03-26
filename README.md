@@ -6,6 +6,18 @@ Archives the JSON from https://covid.cdc.gov/covid-data-tracker/COVIDData/getAja
 
 Watch [Git scraping, the five minute lightning talk](https://simonwillison.net/2021/Mar/5/git-scraping/) to see me live-code the creation of this repository.
 
+## This data in Datasette
+
+The `build_database.py` script loops through the full commit history and uses it to build a SQLite database with a row for every daily report, mainly as a demonstration of how Python code can be used to extract data from a git scraped repository.
+
+That database is then deployed using [Datasette](https://datasette.io/) - you can browse the data at https://cdc-vaccination-history.datasette.io/cdc/daily_reports
+
+You can filter down to individual states like so:
+
+- https://cdc-vaccination-history.datasette.io/cdc/daily_reports?_sort=id&Location__exact=CA
+
+Take a look at the [scrape.yml](https://github.com/simonw/cdc-vaccination-history/blob/main/.github/workflows/scrape.yml) GitHub Actions workflow to see how the scraper runs, and how the data is then built into a database and published to Vercel using `datasette publish`.
+
 ## Should you trust these numbers?
 
 I honestly don't know. These are not coming from a documented API - I found it using the Firefox developer tools network pane. I don't know how the CDC are sourcing these. I don't know if they themselves consider them to be accurate.
