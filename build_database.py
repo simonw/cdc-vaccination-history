@@ -27,3 +27,16 @@ if __name__ == "__main__":
             db["daily_reports"].insert(
                 dict(state, id=id), pk="id", alter=True, replace=True
             )
+    for i, (when, hash, content) in enumerate(
+        iterate_file_versions(".", ("counties.json",))
+    ):
+        try:
+            counties = json.loads(content)["vaccination_county_condensed_data"]
+        except ValueError:
+            # Bad JSON
+            continue
+        for county in counties:
+            id = county["FIPS"] + "-" + county["Date"]
+            db["daily_reports_counties"].insert(
+                dict(county, id=id), pk="id", alter=True, replace=True
+            )
