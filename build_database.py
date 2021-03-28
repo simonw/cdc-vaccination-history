@@ -12,7 +12,7 @@ def iterate_file_versions(repo_path, filepath, ref="main"):
 
 
 if __name__ == "__main__":
-    it = iterate_file_versions(".", "incidents.json")
+    it = iterate_file_versions(".", "states.json")
     count = 0
     db = sqlite_utils.Database("cdc.db")
     for i, (when, hash, content) in enumerate(it):
