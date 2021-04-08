@@ -1,5 +1,5 @@
 {
-  "runid": 1898,
+  "runid": 1899,
   "vaccination_county_condensed_data": [
     {
       "Date": "2021-04-08",
@@ -45248,6 +45248,34 @@
       "Series_Complete_Yes": 765369,
       "Series_Complete_Pop_Pct": null,
       "Completeness_pct": 50.2
+    },
+    {
+      "Date": "2021-04-08",
+      "FIPS": "66010",
+      "StateName": "Guam",
+      "StateAbbr": "GU ",
+      "County": "Guam",
+      "Series_Complete_18Plus": 27784,
+      "Series_Complete_18PlusPop_Pct": 21.5,
+      "Series_Complete_65Plus": 7985,
+      "Series_Complete_65PlusPop_Pct": 28.4,
+      "Series_Complete_Yes": 27803,
+      "Series_Complete_Pop_Pct": 16.8,
+      "Completeness_pct": 79.9
+    },
+    {
+      "Date": "2021-04-08",
+      "FIPS": "UNK",
+      "StateName": "Guam",
+      "StateAbbr": "GU ",
+      "County": "Unknown County",
+      "Series_Complete_18Plus": 7004,
+      "Series_Complete_18PlusPop_Pct": null,
+      "Series_Complete_65Plus": 2376,
+      "Series_Complete_65PlusPop_Pct": null,
+      "Series_Complete_Yes": 7010,
+      "Series_Complete_Pop_Pct": null,
+      "Completeness_pct": 79.9
     },
     {
       "Date": "2021-04-08",
