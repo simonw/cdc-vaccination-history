@@ -54,4 +54,5 @@ jobs:
           --source_url "https://covid.cdc.gov/covid-data-tracker/#vaccinations" \
           --install datasette-vega \
           --project cdc-vaccination-history \
-          --token $VERCEL_TOKEN
+          --token $VERCEL_TOKEN \
+          --extra-options "--setting sql_time_limit_ms 5000 --facet_time_limit_ms 3000"
