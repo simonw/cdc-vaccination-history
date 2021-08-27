@@ -1,5 +1,5 @@
 {
-  "runid": 2117,
+  "runid": 2119,
   "vaccination_data": [
     {
       "Date": "2021-08-26",
@@ -70,7 +70,8 @@
       "Series_Complete_Janssen_12Plus": 14046755,
       "Series_Complete_Unk_Manuf_12Plus": 96203,
       "Administered_12Plus_Entity": 365411395,
-      "Count_70pct_vacc": 28
+      "Count_70pct_vacc": 28,
+      "additional_doses": 642861
     },
     {
       "Date": "2021-08-26",
