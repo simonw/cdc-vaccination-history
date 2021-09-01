@@ -18,14 +18,6 @@ jobs:
       run: |-
         curl https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data | jq . > states.json
         curl https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data | jq . > counties.json
-    - name: Commit and push if it changed
-      run: |-
-        git config user.name "Automated"
-        git config user.email "actions@users.noreply.github.com"
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "Latest data: ${timestamp}" || exit 0
-        git push
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -44,11 +36,11 @@ jobs:
       run: python build_database.py
     - name: Build CSV exports
       run: python compile_csvs.py
-    - name: Commit and push csvs 
+    - name: Commit and push new files if changed 
       run: |-
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
-        git add -A daily_reports.csv daily_reports_counties.csv
+        git add -A counties.json states.json daily_reports.csv daily_reports_counties.csv
         timestamp=$(date -u)
         git commit -m "Latest data: ${timestamp}" || exit 0
         git push
