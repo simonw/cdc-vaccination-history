@@ -9,7 +9,8 @@ import csv
 def create_csv(name, cols):
     cursor = db.execute("select " + ','.join(cols) + " from " + name); 
     rows = cursor.fetchall()
-    csvWriter = csv.writer(open(name + ".csv", "w")) 
+    csvWriter = csv.writer(open(name + ".csv", "w"))
+    csvWriter.writerow(cols) 
     for row in rows:
         csvWriter.writerow(row)
 
