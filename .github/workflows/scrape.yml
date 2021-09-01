@@ -42,6 +42,16 @@ jobs:
         pip install -r requirements.txt
     - name: Build SQLite database
       run: python build_database.py
+    - name: Build CSV exports
+      run: python compile_csvs.py
+    - name: Commit and push csvs 
+      run: |-
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A daily_reports.csv daily_reports_counties.csv
+        timestamp=$(date -u)
+        git commit -m "Latest data: ${timestamp}" || exit 0
+        git push
     - name: Deploy database to Vercel
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
