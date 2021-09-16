@@ -18,7 +18,7 @@ if __name__ == "__main__":
     db = sqlite_utils.Database("cdc.db")
 
     # Create condensed CSV for daily_reports
-    cols = ["Date", "Location", "ShortName", "LongName", "Census2019", "Series_Complete_Pop_Pct"]
+    cols = ["Date", "Location", "ShortName", "LongName", "Census2019", "Administered_Dose2", "Series_Complete_18Plus", "Series_Complete_Pop_Pct"]
     create_csv("daily_reports", cols) 
     
     # Create condensed CSV for daily_reports_counties
