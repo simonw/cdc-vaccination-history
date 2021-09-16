@@ -22,6 +22,6 @@ if __name__ == "__main__":
     create_csv("daily_reports", cols) 
     
     # Create condensed CSV for daily_reports_counties
-    cols = ["Date", "FIPS", "StateName", "StateAbbr", "County", "Series_Complete_Pop_Pct"]
+    cols = ["Date", "FIPS", "StateName", "StateAbbr", "County", "Series_Complete_18PlusPop_Pct", "Series_Complete_Pop_Pct"]
     create_csv("daily_reports_counties", cols)
 
