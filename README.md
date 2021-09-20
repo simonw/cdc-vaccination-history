@@ -6,6 +6,13 @@ Archives the JSON from https://covid.cdc.gov/covid-data-tracker/COVIDData/getAja
 
 Watch [Git scraping, the five minute lightning talk](https://simonwillison.net/2021/Mar/5/git-scraping/) to see me live-code the creation of this repository.
 
+## This data as CSV
+
+If you want to grab the entire dataset I'm now publishing it as two CSV files here:
+
+- https://cdc-vaccination-history-csv.datasette.io/daily_reports.csv - ~5.5MB
+- https://cdc-vaccination-history-csv.datasette.io/daily_reports_counties.csv - ~90MB
+
 ## This data in Datasette
 
 The `build_database.py` script loops through the full commit history and uses it to build a SQLite database with a row for every daily report, mainly as a demonstration of how Python code can be used to extract data from a git scraped repository.
