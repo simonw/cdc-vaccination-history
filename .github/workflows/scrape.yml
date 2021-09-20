@@ -61,4 +61,4 @@ jobs:
           --install datasette-vega \
           --install datasette-graphql \
           --service cdc-vaccination-history \
-          --extra-options "--setting sql_time_limit_ms 5000 --facet_time_limit_ms 3000"
+          --extra-options "--setting sql_time_limit_ms 5000 --setting facet_time_limit_ms 3000"
