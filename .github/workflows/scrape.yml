@@ -48,6 +48,13 @@ jobs:
         version: '275.0.0'
         service_account_email: ${{ secrets.GCP_SA_EMAIL }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
+    - name: Publish static CSV files
+      run: |-
+        gcloud config set run/region us-central1
+        gcloud config set project datasette-222320
+        sqlite-utils cdc.db 'select * from daily_reports_counties' --csv > daily_reports_counties.csv
+        sqlite-utils cdc.db 'select * from daily_reports' --csv > daily_reports.csv
+        gsutil cp *.csv gs://cdc-vaccination-history-csv.datasette.io
     - name: Deploy to Cloud Run
       run: |-
         gcloud config set run/region us-central1
