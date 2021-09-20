@@ -42,11 +42,15 @@ jobs:
         pip install -r requirements.txt
     - name: Build SQLite database
       run: python build_database.py
-    - name: Deploy database to Vercel
-      env:
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    - name: Set up Cloud Run
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        version: '275.0.0'
+        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+    - name: Deploy to Cloud Run
       run: |-
-        datasette publish vercel cdc.db \
+        datasette publish cloudrun cdc.db \
           --title "CDC vaccination numbers" \
           --about "simonw/cdc-vaccination-history" \
           --about_url "https://github.com/simonw/cdc-vaccination-history" \
@@ -54,6 +58,5 @@ jobs:
           --source_url "https://covid.cdc.gov/covid-data-tracker/#vaccinations" \
           --install datasette-vega \
           --install datasette-graphql \
-          --project cdc-vaccination-history \
-          --token $VERCEL_TOKEN \
+          --service cdc-vaccination-history \
           --extra-options "--setting sql_time_limit_ms 5000 --facet_time_limit_ms 3000"
