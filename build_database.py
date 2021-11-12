@@ -40,3 +40,10 @@ if __name__ == "__main__":
             db["daily_reports_counties"].insert(
                 dict(county, id=id), pk="id", alter=True, replace=True
             )
+
+    # Create some indexes
+    db["daily_reports_counties"].create_index(["StateName", "County"])
+    db["daily_reports_counties"].create_index(["FIPS"])
+    db["daily_reports"].create_index(["Location"])
+    db["daily_reports"].create_index(["ShortName"])
+    db["daily_reports"].create_index(["LongName"])
